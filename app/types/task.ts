@@ -1,4 +1,4 @@
-const PRIORITY_TYPE = {
+export const PRIORITY_TYPE = {
   LOW: "low",
   HIGH: "high",
   MEDIUM: "medium"
@@ -20,7 +20,7 @@ export type TasksTypeProps = {
   getPriorityIndicator: (priority: PriorityType, completed: boolean) => string
 }
 
-const SORTBY_TYPE = {
+export const SORTBY_TYPE = {
   PRIORITY: "priority",
   NAME: "name"
 } as const;

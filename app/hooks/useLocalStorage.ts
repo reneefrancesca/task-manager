@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 
 export function useLocalStorage<T>(key: string, defaultValue: T | (() => T)) {
   const getInitial = () => {
@@ -16,10 +16,5 @@ export function useLocalStorage<T>(key: string, defaultValue: T | (() => T)) {
     localStorage.setItem(key, JSON.stringify(value))
   }, [key, value])
 
-  const remove = useCallback(() => {
-    localStorage.removeItem(key)
-    setValue(undefined as unknown as T)
-  }, [])
-
-  return [value, setValue, remove] as const
+  return [value, setValue] as const
 }
