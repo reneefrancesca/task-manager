@@ -13,7 +13,7 @@ export default function Home() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
   const [newTaskInput, setNewTaskInput] = useState<string>('');
   const [priority, setPriority] = useState<PriorityType>('medium');
-  const [sortBy, setSortBy] = useState<SortByType>('priority');
+  const [sortBy, setSortBy] = useState<SortByType>('priorityLevel');
   const [error, setError] = useState<string | null>(null);
   const [completedCount, setCompletedCount] = useState<number>(0);
   const [storedTasks, setStoredTasks] = useLocalStorage("storedTasks", "")
@@ -91,7 +91,7 @@ export default function Home() {
   }
 
   const sortedTasks = [...tasks].sort((a, b) => {
-    if (sortBy !== 'priority') return a.title.localeCompare(b.title);
+    if (sortBy !== 'priorityLevel') return a.title.localeCompare(b.title);
 
     const order = { high: 1, medium: 2, low: 3 };
     return order[a.priority] - order[b.priority];
@@ -109,6 +109,15 @@ export default function Home() {
     return priorityIndicator[priority];
   }
 
+  const getSortByLabel = (sortByType: SortByType) => {
+    const sortByLabel = {
+      priorityLevel: "Priority Level",
+      taskName: "Task Name"
+    }
+
+    return sortByLabel[sortByType];
+  }
+ 
   return (
     <main className="max-w-2xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Task Manager</h1>
@@ -152,12 +161,12 @@ export default function Home() {
           value={sortBy}
           onValueChange={handleSortTask}
         >
-          <SelectTrigger className="ml-1 w-[180px]">
-            <SelectValue>Sort By: </SelectValue>
+          <SelectTrigger className="ml-1 w-[200px]">
+            <SelectValue>Sort By: <span className="capitalize">{getSortByLabel(sortBy)}</span></SelectValue>
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="priority">Priority</SelectItem>
-            <SelectItem value="name">Name</SelectItem>
+            <SelectItem value="priority">Priority Level</SelectItem>
+            <SelectItem value="task">Task Name</SelectItem>
           </SelectContent>
         </Select>
         <p className="text-sm text-gray-600">

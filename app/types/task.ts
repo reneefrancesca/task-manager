@@ -21,8 +21,8 @@ export type TasksTypeProps = {
 }
 
 export const SORTBY_TYPE = {
-  PRIORITY: "priority",
-  NAME: "name"
+  priorityLevel: "priorityLevel",
+  taskName: "taskName"
 } as const;
 
 export type SortByType = typeof SORTBY_TYPE[keyof typeof SORTBY_TYPE];

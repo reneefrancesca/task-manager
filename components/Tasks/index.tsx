@@ -20,7 +20,7 @@ const Tasks = ({tasks, onCompleteTask, onDeleteTask, getPriorityIndicator}: Task
         <TableHeader>
           <TableRow>
             <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3" />
-            <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3">Task</TableHead>
+            <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3">Task Name</TableHead>
             <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3">Priority Level</TableHead>
             <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3" />
           </TableRow>
