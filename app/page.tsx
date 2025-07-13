@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Tasks from '@/components/Tasks';
+import { seedTasks } from './utils/seed-tasks';
 
 export default function Home() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
@@ -27,9 +28,12 @@ export default function Home() {
       } catch (err) {
         console.error("Failed to parse stored tasks", err);
       }
-    } else {
-      setTasks([]);
+
+      return;
     }
+    
+    // When storedTasks does not exists on LocalStorage.
+    setStoredTasks(JSON.stringify(seedTasks));
   }, [storedTasks]);
 
   useEffect(() => {

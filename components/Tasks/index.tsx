@@ -12,17 +12,17 @@ const Tasks = ({tasks, onCompleteTask, onDeleteTask, getPriorityIndicator}: Task
     <div className="rounded-md border overflow-hidden">
       <CustomTable className="table-fixed">
         <colgroup>
-          <col className="w-[90px]" />
+          <col className="w-[40px]" />
           <col className="w-[200px]" />
           <col className="w-[120px]" />
           <col className="w-[60px]" />
         </colgroup>
         <TableHeader>
           <TableRow>
-            <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3">Completed</TableHead>
+            <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3" />
             <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3">Task</TableHead>
             <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3">Priority Level</TableHead>
-            <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3"></TableHead>
+            <TableHead className="sticky top-0 z-10 bg-white shadow-sm p-3" />
           </TableRow>
         </TableHeader>
       </CustomTable>
@@ -30,7 +30,7 @@ const Tasks = ({tasks, onCompleteTask, onDeleteTask, getPriorityIndicator}: Task
       <div className="max-h-[460px] overflow-y-auto">
         <CustomTable className="table-fixed">
           <colgroup>
-            <col className="w-[90px]" />
+            <col className="w-[40px]" />
             <col className="w-[200px]" />
             <col className="w-[120px]" />
             <col className="w-[60px]" />
@@ -49,7 +49,7 @@ const Tasks = ({tasks, onCompleteTask, onDeleteTask, getPriorityIndicator}: Task
                 <TableCell className="capitalize">
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <div className="truncate w-[140px] cursor-default">{task.title}</div>
+                      <div className="truncate w-[250px] cursor-default">{task.title}</div>
                     </TooltipTrigger>
                     <TooltipContent>{task.title}</TooltipContent>
                   </Tooltip>
